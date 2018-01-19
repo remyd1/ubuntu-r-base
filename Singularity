@@ -10,10 +10,10 @@ IncludeCmd: yes
   export R_CONFIG_DIR
 
 %labels
-  Maintainer Remy Dernat
+  Author Remy Dernat
   Version v0.0.1
   R_Version 3.2.5
-  BuildDate 2018 Jan 19
+  build_date 2018 Jan 19
 
 %apprun R
   exec R "$@"
