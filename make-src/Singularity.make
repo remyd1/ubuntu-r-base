@@ -2,7 +2,6 @@ Bootstrap: docker
 From: ubuntu:16.04
 IncludeCmd: yes
 
-
 %environment
   R_VERSION=3.4.3
   export R_VERSION
@@ -26,6 +25,7 @@ IncludeCmd: yes
 
 
 %post
+  NPROCS=$((`grep -E "^processor" /proc/cpuinfo |tail -1 |awk '{print $3}'` + 1))
   apt-get install -y wget
   cd $HOME
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
@@ -45,8 +45,9 @@ IncludeCmd: yes
 
   apt-get update
 
-  ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
-  make
+  ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes
+  echo "Will use make with $NPROCS cores."
+  make -j${NPROCS}
   make install
   R --version 
   
