@@ -49,16 +49,16 @@ IncludeCmd: yes
   echo "Will use make with $NPROCS cores."
   make -j${NPROCS}
   make install
-  R --version 
-  
+  R --version
+
   # installing some packages
-  echo install.packages\(\"devtools\"\, repos\=\'https://cloud.r-project.org\'\) | R --slave
+  echo install.packages\(\"devtools\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
 
-  echo install.packages\(\"ade4\"\, repos\=\'https://cloud.r-project.org\'\) | R --slave
+  echo install.packages\(\"ade4\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
 
-  echo install.packages\(\"ape\"\, repos\=\'https://cloud.r-project.org/\'\) | R --slave
+  echo install.packages\(\"ape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
 
-  echo install.packages\(\"FD\"\, repos\=\'https://cloud.r-project.org/\'\) | R --slave
+  echo install.packages\(\"FD\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
 
   R --slave "devtools::install_github('igraph/rigraph')"
 
