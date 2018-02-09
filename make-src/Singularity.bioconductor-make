@@ -10,9 +10,11 @@ IncludeCmd: yes
 
 %labels
   Author Jimmy Lopez
-  Version v0.0.1
+  Update Remy Dernat
+  Version v0.0.2
   R_Version 3.4.3
   build_date 2018 Feb 09
+  R_bioconductor True
 
 %apprun R
   exec R "$@"
