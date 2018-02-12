@@ -27,7 +27,7 @@ IncludeCmd: yes
 
 
 %post
-  NPROCS=$((`grep -E "^processor" /proc/cpuinfo |tail -1 |awk '{print $3}'` + 1))
+  NPROCS=$(( grep -E -c ^proc /proc/cpuinfo ))
   apt-get install -y wget
   cd $HOME
   wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
@@ -72,7 +72,4 @@ IncludeCmd: yes
 
   R --slave -e "source('https://bioconductor.org/biocLite.R'); \
   biocLite('phyloseq')"
-
-
-
 
