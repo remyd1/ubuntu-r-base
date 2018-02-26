@@ -9,12 +9,11 @@ IncludeCmd: yes
   export R_CONFIG_DIR
 
 %labels
-  Author Jimmy Lopez
-  Update Remy Dernat
-  Version v0.0.2
+  Author Remy Dernat
+  Version v0.0.1
   R_Version 3.4.3
-  build_date 2018 Feb 09
-  R_bioconductor True
+  build_date 2018 Feb 26
+  R_cran True
 
 %apprun R
   exec R "$@"
@@ -35,8 +34,8 @@ IncludeCmd: yes
   cd R-3.4.3
 
   apt-get update
-  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl
-
+  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl 
+  apt-get install -y libgmp10 libgmp-dev
   apt-get install -y gcc fort77 aptitude
   aptitude install -y g++
   aptitude install -y xorg-dev
@@ -54,22 +53,9 @@ IncludeCmd: yes
   R --version
 
   # installing some packages
-  echo install.packages\(\"devtools\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-
-  echo install.packages\(\"ade4\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
-
-  echo install.packages\(\"ape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-
-  echo install.packages\(\"FD\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
-
-  R --slave "devtools::install_github('igraph/rigraph')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-  biocLite()"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-  biocLite('dada2')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-  biocLite('phyloseq')"
-
+  echo install.packages\(\"spaMM\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"blackbox\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"Infusion\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"IsoriX\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"mvtnorm\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"geometry\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
