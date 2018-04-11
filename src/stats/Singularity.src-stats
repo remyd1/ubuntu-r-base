@@ -44,7 +44,7 @@ IncludeCmd: yes
   gfortran --version
   apt install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev
 
-  apt-get update
+  apt-get update --fix-missing
 
   ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes
   echo "Will use make with $NPROCS cores."
