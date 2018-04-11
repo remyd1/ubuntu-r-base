@@ -52,6 +52,9 @@ IncludeCmd: yes
   make install
   R --version
 
+  ln -s /usr/local/bin/R /usr/bin/R
+  ln -s /usr/local/bin/Rscript /usr/bin/Rscript
+
   # installing some packages
   echo install.packages\(\"spaMM\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"blackbox\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
