@@ -1,5 +1,7 @@
 Bootstrap: docker
 From: ubuntu:16.04
+Registry: index.docker.io
+Namespace: library
 IncludeCmd: yes
 
 %environment
