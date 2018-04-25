@@ -17,7 +17,7 @@ From: ubuntu:16.04
   exec Rscript "${@}"
 
 %apprun r
-  exec r "${@}"
+  exec /usr/local/bin/r "${@}"
 
 %runscript
   exec R "${@}"
@@ -88,5 +88,6 @@ From: ubuntu:16.04
   echo install.packages\(\"ggplot2\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"littler\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
 
+  ln -s /library/littler/bin/r /usr/local/bin/r
   # Clean up
   rm -rf /var/lib/apt/lists/*
