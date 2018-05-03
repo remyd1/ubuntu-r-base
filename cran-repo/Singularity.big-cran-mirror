@@ -9,7 +9,9 @@ From: ubuntu:16.04
   build_date 2018 Apr 25
 
 %environment
-  export JAVA_HOME=/etc/alternatives/java
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+  export JDK_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+  export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 
 %apprun R
   exec R "${@}"
@@ -47,7 +49,7 @@ From: ubuntu:16.04
   apt-get update
   apt-get install -y gcc fort77 libblas3 libblas-dev liblapack-dev liblapack3 curl \
     gcc fort77 g++ xorg-dev libreadline-dev gfortran libbz2-dev libcurl4-openssl-dev \
-    libpcre3-dev liblzma-dev jags libgmp10 libgmp-dev openjdk-8-jre
+    libpcre3-dev liblzma-dev jags libgmp10 libgmp-dev openjdk-8-jre openjdk-8-jdk
   apt-get install -y --no-install-recommends \
     r-base=${R_VERSION}* \
     r-base-core=${R_VERSION}* \
